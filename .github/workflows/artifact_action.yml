@@ -19,6 +19,6 @@ jobs:
       - name: Notify Teams
         uses: FTsbrown/msteams-action@master
         with: 
-          TITLE: Test GitHub Action Notification for commit: ${{ GITHUB_SHA }}  # the message title
-          BODY: 🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉 : with compliments - ${{GITHUB_ACTOR}} # the body of the message
+          TITLE: Test GitHub Action Notification  # the message title
+          BODY: 🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉  with compliments - ${{GITHUB_ACTOR}} commit - ${{ GITHUB_SHA }} # the body of the message
           MS_TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
