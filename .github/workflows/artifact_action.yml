@@ -21,6 +21,7 @@ jobs:
         with: 
           TITLE: Test GitHub Action Notification
           BODY: >+
-            🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉
-            Commit - ${{ github.sha }} ${{ env.GITHUB_SHA }}
+            🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉\n
+            User - ${{ github.actor }}\n
+            Commit - ${{ github.sha }}
           MS_TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
