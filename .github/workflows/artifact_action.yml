@@ -21,4 +21,4 @@ jobs:
         with: 
           TITLE: Test GitHub Action Notification  # the message title
           BODY: 🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉  # the body of the message
-          MS_TEAMS_WEBHOOK: https://teams.microsoft.com/l/channel/19%3aff39a0303e914227900193d632c0f323%40thread.tacv2/General?groupId=d61535e3-7f30-4a5c-b0cf-7f83cb3b95a8&tenantId=7530bded-fd6e-4f58-b5d2-ea681eb07663 #
+          MS_TEAMS_WEBHOOK: ${{ TEAMS_WEBHOOK_URL }}
