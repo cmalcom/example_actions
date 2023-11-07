@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify_on_regular_pr:
-    
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Poker & PR Notification
