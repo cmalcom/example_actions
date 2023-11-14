@@ -12,9 +12,8 @@ jobs:
       - name: Poker & PR Notification
         uses: FTsbrown/msteams-action@master
         with: 
-          TITLE: Test GitHub Action Notification
+          TITLE: IGNORE ME PLEASE
           BODY: >+
-            🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉\n
-            User - ${{ github.actor }}\n
-            Commit - ${{ github.sha }}
+            @Poker and PR Please review - ${{ github.event.pull_request.title }} / 
+            Url - http://ignorethis.com/${{github.repository}}/pull/${{github.event.number}}
           MS_TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
