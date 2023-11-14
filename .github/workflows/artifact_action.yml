@@ -1,19 +1,24 @@
 name: ms_teams_notifications
 
-on: 
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+on: [pull_request]
 
 jobs:
   notify_on_regular_pr:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      - name: Send MS Teams notification
+        id: notification
+        if: always()
+        uses: sergioaten/msteams-notifications@v0.1-beta
+        with:
+          webhook: ${{ secrets.TEAMS_WEBHOOK_URL }}
       - name: Poker & PR Notification
         uses: FTsbrown/msteams-action@master
         with: 
-          TITLE: IGNORE ME PLEASE
+          TITLE: Test GitHub Action Notification
           BODY: >+
-            @Poker and PR Please review - ${{ github.event.pull_request.title }} / 
-            Url - http://ignorethis.com/${{github.repository}}/pull/${{github.event.number}}
-          MS_TEAMS_WEBHOOK: https://teams.microsoft.com/l/channel/19%3a4d45668d71c04f459ea639d6d00e1118%40thread.tacv2/Poker%2520and%2520PR?groupId=d61535e3-7f30-4a5c-b0cf-7f83cb3b95a8&tenantId=7530bded-fd6e-4f58-b5d2-ea681eb07663
+            🎉🎉 YOU HAVE BEEN NOTIFIED 🎉🎉\n
+            User - ${{ github.actor }}\n
+            Commit - ${{ github.sha }}
+          MS_TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK_URL }}
