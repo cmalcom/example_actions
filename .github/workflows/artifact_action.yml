@@ -7,6 +7,12 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      - name: Send MS Teams notification
+        id: notification
+        if: always()
+        uses: sergioaten/msteams-notifications@v0.1-beta
+        with:
+          webhook: ${{ secrets.TEAMS_WEBHOOK_URL }}
       - name: Poker & PR Notification
         uses: FTsbrown/msteams-action@master
         with: 
